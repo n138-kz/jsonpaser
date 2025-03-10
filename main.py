@@ -201,10 +201,14 @@ async def on_message(message):
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
             )
             embed.set_thumbnail(url=client.user.avatar.url)
-            with open('log/result_await_{0}.txt'.format(
+
+            asynclog='log/result_await_{0}.txt'.format(
                 math.trunc(time.time()),
-            ), mode='w', encoding='UTF-8', newline='\n') as f:
-                f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(fp=file,filename='result.json')])))
+            )
+            response=await message.reply(embed=embed,files=[discord.File(fp=file,filename='result.json')])
+            with open(asynclog, mode='w', encoding='UTF-8', newline='\n') as f:
+                f.writelines('{0}'.format(response))
+            to_gzip(asynclog,delete=True)
         
         to_gzip(file,delete=True)
 @client.event
