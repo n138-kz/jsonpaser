@@ -191,6 +191,18 @@ async def on_message(message):
                 math.trunc(time.time()),
             ), mode='w', encoding='UTF-8', newline='\n') as f:
                 f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(file)])))
+        
+        with open(file, 'rb') as f_in:
+            with gzip.open(file+'.gz', 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+        try:
+            os.remove(file)
+        except FileNotFoundError:
+            print(f"{file} が見つかりませんでした。")
+        except PermissionError:
+            print(f"{file} を削除する権限がありません。")
+        except OSError as e:
+            print(f"その他のエラーが発生しました: {e}")
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name='https://...'))
