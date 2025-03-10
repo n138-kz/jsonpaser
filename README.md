@@ -1,83 +1,30 @@
-# [DEFAULT REPOS](https://github.com/n138-kz/_DEFAULTREPOS)
-
-## Quick setup
-
-<details>
-
-### if you’ve done this kind of thing before
-
-```sh
-git clone https://github.com/n138-kz/_DEFAULTREPOS.git
-```
-
-```sh
-git clone git@github.com:n138-kz/_DEFAULTREPOS.git
-```
-
-### …or create a new repository on the command line
-
-```sh
-touch README.md
-git init
-git add README.md
-git commit -m init
-git branch -M main
-git remote add origin git@github.com:n138-kz/_DEFAULTREPOS.git
-git branch --set-upstream-to=origin/main main
-git config pull.rebase false
-git fetch
-git pull
-git merge --allow-unrelated-histories origin/main
-git push -u origin main
-```
-
-- [git merge --allow-unrelated-histories origin/main](https://qiita.com/mei28/items/85bc881ac1f26332ac15)
-
-### …or push an existing repository from the command line
-
-```sh
-git remote add origin git@github.com:n138-kz/_DEFAULTREPOS.git
-git branch -M main
-git push -u origin main
-```
-
-### pull an another existing repository from the command line
-
-```sh
-git config pull.rebase false
-git branch -r
-git pull origin {remote-repos-name}:{local-repos-name}
-git checkout {local-repos-name}
-git branch --set-upstream-to=origin/{remote-repos-name} {local-repos-name}
-```
-
-</details>
+# [jsonpaser](https://github.com/n138-kz/jsonpaser)
 
 ## Activity
 
-[![GitHub repo license](https://img.shields.io/github/license/n138-kz/_DEFAULTREPOS)](/LICENSE)
-[![GitHub repo size](https://img.shields.io/github/repo-size/n138-kz/_DEFAULTREPOS)](/../../)
-[![GitHub repo file count](https://img.shields.io/github/directory-file-count/n138-kz/_DEFAULTREPOS)](/../../)
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/n138-kz/_DEFAULTREPOS)](/../../)
-[![GitHub last commit](https://img.shields.io/github/last-commit/n138-kz/_DEFAULTREPOS)](/../../commits)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/n138-kz/_DEFAULTREPOS)](/../../commits)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/n138-kz/_DEFAULTREPOS)](/../../commits)
-[![GitHub issues](https://img.shields.io/github/issues/n138-kz/_DEFAULTREPOS)](/../../issues)
-[![GitHub issues closed](https://img.shields.io/github/issues-closed/n138-kz/_DEFAULTREPOS)](/../../issues)
-[![GitHub pull requests closed](https://img.shields.io/github/issues-pr-closed/n138-kz/_DEFAULTREPOS)](/../../pulls)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/n138-kz/_DEFAULTREPOS)](/../../pulls)
-[![GitHub language count](https://img.shields.io/github/languages/count/n138-kz/_DEFAULTREPOS)](/../../)
-[![GitHub top language](https://img.shields.io/github/languages/top/n138-kz/_DEFAULTREPOS)](/../../)
+[![GitHub repo license](https://img.shields.io/github/license/n138-kz/jsonpaser)](/LICENSE)
+[![GitHub repo size](https://img.shields.io/github/repo-size/n138-kz/jsonpaser)](/../../)
+[![GitHub repo file count](https://img.shields.io/github/directory-file-count/n138-kz/jsonpaser)](/../../)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/n138-kz/jsonpaser)](/../../)
+[![GitHub last commit](https://img.shields.io/github/last-commit/n138-kz/jsonpaser)](/../../commits)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/n138-kz/jsonpaser)](/../../commits)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/n138-kz/jsonpaser)](/../../commits)
+[![GitHub issues](https://img.shields.io/github/issues/n138-kz/jsonpaser)](/../../issues)
+[![GitHub issues closed](https://img.shields.io/github/issues-closed/n138-kz/jsonpaser)](/../../issues)
+[![GitHub pull requests closed](https://img.shields.io/github/issues-pr-closed/n138-kz/jsonpaser)](/../../pulls)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/n138-kz/jsonpaser)](/../../pulls)
+[![GitHub language count](https://img.shields.io/github/languages/count/n138-kz/jsonpaser)](/../../)
+[![GitHub top language](https://img.shields.io/github/languages/top/n138-kz/jsonpaser)](/../../)
 
 ## Github RestAPI
 
 ```http
-GET https://api.github.com/repos/n138-kz/_DEFAULTREPOS
+GET https://api.github.com/repos/n138-kz/jsonpaser
 ```
 
 <details>
 
-  [n138-kz/_DEFAULTREPOS](https://api.github.com/repos/n138-kz/_DEFAULTREPOS) (Public repos only)
+  [n138-kz/jsonpaser](https://api.github.com/repos/n138-kz/jsonpaser) (Public repos only)
   
 </details>
 
