@@ -190,7 +190,7 @@ async def on_message(message):
             with open('log/result_await_{0}.txt'.format(
                 math.trunc(time.time()),
             ), mode='w', encoding='UTF-8', newline='\n') as f:
-                f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(file)])))
+                f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(fp=file,filename='result.json')])))
         
         with open(file, 'rb') as f_in:
             with gzip.open(file+'.gz', 'wb') as f_out:
