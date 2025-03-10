@@ -131,7 +131,7 @@ tree = discord.app_commands.CommandTree(client)
 
 @client.event
 async def on_message_edit(before, after):
-    on_message(after)
+    await on_message(after)
 
 @client.event
 async def on_message(message):
