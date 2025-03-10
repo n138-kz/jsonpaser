@@ -190,14 +190,6 @@ try:
         client.run(DISCORD_API_TOKEN)
     else:
         raise discord.errors.LoginFailure('Token has required.')
-except TypeError as e:
-    timestamp=datetime.datetime.now(datetime.timezone.utc)
-
-    with open('except.log',mode='a',encoding='utf-8',newline='\n') as f:
-        f.writelines('{}\n'.format(timestamp))
-        traceback_print(file=f)
-    traceback_print()
-    sys.exit(1)
 except discord.errors.LoginFailure as e:
     timestamp=datetime.datetime.now(datetime.timezone.utc)
 
