@@ -7,6 +7,9 @@ import math
 import discord
 import datetime
 import time
+import logging
+import gzip
+import shutil
 from traceback import print_exc as traceback_print
 from zlib import crc32 as calc_crc32
 from hashlib import md5 as hash_md5
@@ -187,9 +190,20 @@ async def on_message(message):
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name='https://...'))
 
+file='log/discord.log'
+for i in reversed(range(9)):
+    if os.path.exists('{0}_{1}.gz'.format(file,i)):
+        os.rename('{0}_{1}.gz'.format(file,i), '{0}_{1}.gz'.format(file,i+1))
+
+if os.path.exists(file+''):
+    with open(file, 'rb') as f_in:
+        with gzip.open(file+'_0.gz', 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
+
+logging_handler = logging.FileHandler(filename=file+'', encoding='utf-8', mode='w')
 try:
     if len(DISCORD_API_TOKEN)>0:
-        client.run(DISCORD_API_TOKEN)
+        client.run(DISCORD_API_TOKEN, log_handler=logging_handler, log_level=logging.DEBUG)
     else:
         raise discord.errors.LoginFailure('Token has required.')
 except discord.errors.LoginFailure as e:
