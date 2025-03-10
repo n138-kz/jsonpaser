@@ -130,6 +130,10 @@ client = discord.Client(intents=intents)
 tree = discord.app_commands.CommandTree(client)
 
 @client.event
+async def on_message_edit(before, after):
+    on_message(after)
+
+@client.event
 async def on_message(message):
     # 送信者がbotである場合は弾く
     if message.author.bot:
