@@ -195,7 +195,11 @@ async def on_ready():
 file='log/discord.log'
 for i in reversed(range(9)):
     if os.path.exists('{0}_{1}.gz'.format(file,i)):
-        os.rename('{0}_{1}.gz'.format(file,i), '{0}_{1}.gz'.format(file,i+1))
+        try:
+            os.rename('{0}_{1}.gz'.format(file,i), '{0}_{1}.gz'.format(file,i+1))
+        except FileExistsError as e:
+            os.remove('{0}_{1}.gz'.format(file,i+1))
+            os.rename('{0}_{1}.gz'.format(file,i), '{0}_{1}.gz'.format(file,i+1))
 
 if os.path.exists(file+''):
     with open(file, 'rb') as f_in:
