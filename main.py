@@ -206,6 +206,7 @@ async def on_message(message):
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name='https://...'))
+    print('ready.')
 
 file='log/discord.log'
 for i in reversed(range(9)):
