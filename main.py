@@ -149,6 +149,7 @@ async def on_message(message):
     if message.content.startswith('http://') or message.content.startswith('https://'):
         print(f'on_message: {message.content}')
         print(f'on_guild: {message.guild.id}')
+        print(f'on_channel: {message.channel.id}')
         print(f'do_author: {message.author.name}')
 
         file='log/result_{0}_{1}.json'.format(
