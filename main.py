@@ -158,7 +158,8 @@ async def on_message(message):
         data['meta']['issue_at']={
             'timestamp':time.time(),
             'timezone': {
-                'utc': '{0}'.format(datetime.datetime.now(datetime.timezone.utc))
+                'utc': '{0}'.format(datetime.datetime.now(datetime.timezone.utc)),
+                'jst': '{0}'.format(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9),'JST'))),
             }
         }
         data['data']=getHTTPResource(message.content)
