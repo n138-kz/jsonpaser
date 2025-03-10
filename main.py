@@ -178,7 +178,7 @@ async def on_message(message):
         )
         embed.set_thumbnail(url=client.user.avatar.url)
         with open('log/result_await_{0}.txt'.format(
-            math.trunc(time.time),
+            math.trunc(time.time()),
         ), mode='w', encoding='UTF-8', newline='\n') as f:
             f.writelines(await message.reply(embed=embed,files=[discord.File(file)]))
 @client.event
