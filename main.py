@@ -145,14 +145,14 @@ async def on_message(message):
 
         file='log/result_{0}_{1}.json'.format(
             message.author.name,
-            math.trunc(time.time),
+            math.trunc(time.time()),
         )
         data={
             'meta':{},
             'data':{},
         }
         data['meta']['issue_at']={
-            'timestamp':time.time,
+            'timestamp':time.time(),
             'timezone': {
                 'utc': datetime.datetime.now(datetime.timezone.utc)
             }
