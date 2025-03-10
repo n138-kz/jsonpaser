@@ -194,7 +194,6 @@ except TypeError as e:
         traceback_print(file=f)
     traceback_print()
     sys.exit(1)
-
 except discord.errors.LoginFailure as e:
     timestamp=datetime.datetime.now(datetime.timezone.utc)
 
