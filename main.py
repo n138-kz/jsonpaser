@@ -157,7 +157,7 @@ async def on_message(message):
                 'utc': datetime.datetime.now(datetime.timezone.utc)
             }
         }
-        data['data']=getHTTPResource('http://api.github.com/')
+        data['data']=getHTTPResource(message.content)
         if not(os.path.exists(os.path.dirname(file))):
             os.mkdir(os.path.dirname(file))
 
