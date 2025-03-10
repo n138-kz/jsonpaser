@@ -180,7 +180,7 @@ async def on_message(message):
         with open('log/result_await_{0}.txt'.format(
             math.trunc(time.time()),
         ), mode='w', encoding='UTF-8', newline='\n') as f:
-            f.writelines(await message.reply(embed=embed,files=[discord.File(file)]))
+            f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(file)])))
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name='https://...'))
