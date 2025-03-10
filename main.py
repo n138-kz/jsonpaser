@@ -176,7 +176,7 @@ async def on_message(message):
         with open(file, mode='w', encoding='UTF-8') as f:
             json.dump(data, indent=4, fp=f)
 
-        if data['data'] is not None:
+        if data['data']['body'] is not None:
             embed = discord.Embed(
                 title='Result',
                 color=0x00ff00,
