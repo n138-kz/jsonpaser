@@ -119,6 +119,20 @@ def boot_checkdir(dirs=[]):
         else:
             os.mkdir(d)
 
+def to_gzip(file, delete=False):
+    with open(file, 'rb') as f_in:
+        with gzip.open(file+'.gz', 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
+    if delete:
+        try:
+            os.remove(file)
+        except FileNotFoundError:
+            return f"{file} が見つかりませんでした。"
+        except PermissionError:
+            return f"{file} を削除する権限がありません。"
+        except OSError as e:
+            return f"その他のエラーが発生しました: {e}"
+
 config = load_config(file=CONFIG_FILE)
 getVersion(returnable=False)
 boot_checkdir(config['internal']['local']['boot_check']['directories'])
@@ -192,17 +206,7 @@ async def on_message(message):
             ), mode='w', encoding='UTF-8', newline='\n') as f:
                 f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(fp=file,filename='result.json')])))
         
-        with open(file, 'rb') as f_in:
-            with gzip.open(file+'.gz', 'wb') as f_out:
-                shutil.copyfileobj(f_in, f_out)
-        try:
-            os.remove(file)
-        except FileNotFoundError:
-            print(f"{file} が見つかりませんでした。")
-        except PermissionError:
-            print(f"{file} を削除する権限がありません。")
-        except OSError as e:
-            print(f"その他のエラーが発生しました: {e}")
+        to_gzip(file,delete=True)
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name='https://...'))
