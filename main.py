@@ -171,17 +171,18 @@ async def on_message(message):
         with open(file, mode='w', encoding='UTF-8') as f:
             json.dump(data, indent=4, fp=f)
 
-        embed = discord.Embed(
-            title='Result',
-            color=0x00ff00,
-            url='https://api.github.com/repos/'+GITHUB_REPOSITORY,
-            timestamp=datetime.datetime.now(datetime.timezone.utc),
-        )
-        embed.set_thumbnail(url=client.user.avatar.url)
-        with open('log/result_await_{0}.txt'.format(
-            math.trunc(time.time()),
-        ), mode='w', encoding='UTF-8', newline='\n') as f:
-            f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(file)])))
+        if data['data'] is not None:
+            embed = discord.Embed(
+                title='Result',
+                color=0x00ff00,
+                url='https://api.github.com/repos/'+GITHUB_REPOSITORY,
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
+            )
+            embed.set_thumbnail(url=client.user.avatar.url)
+            with open('log/result_await_{0}.txt'.format(
+                math.trunc(time.time()),
+            ), mode='w', encoding='UTF-8', newline='\n') as f:
+                f.writelines('{0}'.format(await message.reply(embed=embed,files=[discord.File(file)])))
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity(name='https://...'))
