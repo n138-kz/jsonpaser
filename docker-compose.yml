@@ -1,0 +1,6 @@
+services:
+  python-bot-core:
+    build:
+      context: .
+      dockerfile: docker_build/Dockerfile
+    restart: always
