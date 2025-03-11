@@ -28,6 +28,14 @@ GET https://api.github.com/repos/n138-kz/jsonpaser
   
 </details>
 
+## Discord Application
+
+[1348709707698933911](https://discord.com/developers/applications/1348709707698933911/information)
+
+```
+c6dd7e32ae0c48dabbb944a8e07ab17c25fe2c25f6e8b4cba6f312106477b960
+```
+
 ## Refs
 
 - [![](https://www.google.com/s2/favicons?size=64&domain=https://discord.com)Developer Console](https://discord.com/developers/applications)
