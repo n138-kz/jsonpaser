@@ -197,7 +197,7 @@ async def on_message(message):
             embed = discord.Embed(
                 title='Result',
                 color=0x00ff00,
-                url='https://api.github.com/repos/'+GITHUB_REPOSITORY,
+                url=message.content.split()[0],
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
             )
             embed.set_thumbnail(url=client.user.avatar.url)
